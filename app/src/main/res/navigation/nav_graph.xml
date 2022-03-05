@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hostFragment">
+
+    <fragment
+        android:id="@+id/hostFragment"
+        android:name="es.uniovi.basicnavigation.HostFragment"
+        android:label="fragment_host"
+        tools:layout="@layout/fragment_host" >
+        <action
+            android:id="@+id/action_hostFragment_to_fisrtScreen"
+            app:destination="@id/fisrtScreen" />
+        <action
+            android:id="@+id/action_hostFragment_to_secondScreen"
+            app:destination="@id/secondScreen" />
+        <action
+            android:id="@+id/action_hostFragment_to_placeholder"
+            app:destination="@id/placeholder" />
+    </fragment>
+    <fragment
+        android:id="@+id/fisrtScreen"
+        android:name="es.uniovi.basicnavigation.FisrtScreen"
+        android:label="fragment_fisrt_screen"
+        tools:layout="@layout/fragment_fisrt_screen" />
+    <fragment
+        android:id="@+id/secondScreen"
+        android:name="es.uniovi.basicnavigation.SecondScreen"
+        android:label="fragment_second_screen"
+        tools:layout="@layout/fragment_second_screen" >
+        <action
+            android:id="@+id/action_secondScreen_to_placeholder"
+            app:destination="@id/placeholder" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeholder"
+        android:name="es.uniovi.basicnavigation.ThirdScreen"
+        tools:layout="@layout/fragment_third_screen" />
+</navigation>
