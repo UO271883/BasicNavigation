@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import es.uniovi.basicnavigation.databinding.FragmentSecondScreenBinding
+import es.uniovi.basicnavigation.databinding.FragmentThirdScreenBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,15 +20,12 @@ private const val ARG_PARAM2 = "param2"
  */
 class ThirdScreen : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentThirdScreenBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -34,8 +33,18 @@ class ThirdScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        /*arguments?.let {
+            val recibido = it.getString("PARAMETER")
+            binding.TVSaludo.text = "Invocado desde " + recibido
+        }*/
         return inflater.inflate(R.layout.fragment_third_screen, container, false)
     }
+
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentThirdScreenBinding.bind(view)
+    }*/
 
     companion object {
         /**

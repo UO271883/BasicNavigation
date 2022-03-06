@@ -11,14 +11,26 @@
         android:label="fragment_host"
         tools:layout="@layout/fragment_host" >
         <action
-            android:id="@+id/action_hostFragment_to_fisrtScreen"
-            app:destination="@id/fisrtScreen" />
+            android:id="@+id/action_fromh_to_1"
+            app:destination="@id/fisrtScreen"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
-            android:id="@+id/action_hostFragment_to_secondScreen"
-            app:destination="@id/secondScreen" />
+            android:id="@+id/action_fromh_to_2"
+            app:destination="@id/secondScreen"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
-            android:id="@+id/action_hostFragment_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_fromh_to_3"
+            app:destination="@id/placeholder"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/fisrtScreen"
@@ -31,11 +43,20 @@
         android:label="fragment_second_screen"
         tools:layout="@layout/fragment_second_screen" >
         <action
-            android:id="@+id/action_secondScreen_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_from2_to_3"
+            app:destination="@id/placeholder"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/placeholder"
         android:name="es.uniovi.basicnavigation.ThirdScreen"
-        tools:layout="@layout/fragment_third_screen" />
+        tools:layout="@layout/fragment_third_screen" >
+        <argument
+            android:name="origen"
+            app:argType="string"
+            android:defaultValue="deconocido" />
+    </fragment>
 </navigation>

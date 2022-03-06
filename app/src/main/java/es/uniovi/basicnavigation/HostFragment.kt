@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import es.uniovi.basicnavigation.databinding.FragmentHostBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,17 +47,34 @@ class HostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentHostBinding.bind(view)
+        /*var bundle = Bundle().apply {
+            putString("PARAMETER", "la pantalla host")
+        }*/
 
-        binding.button.setOnClickListener {
-
+        binding.BTo1.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_fromh_to_1)
         }
-        binding.button2.setOnClickListener {
-
+        binding.BTo2.setOnClickListener {
+            view.findNavController().navigate(R.id.action_fromh_to_2)
         }
-        binding.button3.setOnClickListener {
-
+        binding.BTo3.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_fromh_to_3)
         }
     }
+
+    /*fun onClick(v: View?) {
+        when(v?.id) {
+            binding.button.id -> {
+                Navigation.findNavController(v).navigate(R.id.fisrtScreen)
+            }
+            binding.button2.id -> {
+                v.findNavController().navigate(R.id.secondScreen)
+            }
+            binding.button3.id -> {
+                v.findNavController().navigate(R.id.placeholder)
+            }
+        }
+    }*/
 
     companion object {
         /**
