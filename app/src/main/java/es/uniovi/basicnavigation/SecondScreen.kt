@@ -44,7 +44,8 @@ class SecondScreen : Fragment() {
         /*var bundle = Bundle().apply {
             putString("PARAMETER", "la segunda pantalla")
         }*/
-        binding.BScr2.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_from2_to_3))
+        val action = SecondScreenDirections.actionFrom2To3("la segunda pantalla")
+        binding.BScr2.setOnClickListener(Navigation.createNavigateOnClickListener(action))
 
     }
 

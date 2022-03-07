@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import es.uniovi.basicnavigation.databinding.FragmentSecondScreenBinding
 import es.uniovi.basicnavigation.databinding.FragmentThirdScreenBinding
 
@@ -33,18 +34,20 @@ class ThirdScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        /*arguments?.let {
-            val recibido = it.getString("PARAMETER")
-            binding.TVSaludo.text = "Invocado desde " + recibido
-        }*/
+
         return inflater.inflate(R.layout.fragment_third_screen, container, false)
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentThirdScreenBinding.bind(view)
-    }*/
+        /*val recibido = it.getString("PARAMETER")
+        binding.TVSaludo.text = "Invocado desde " + recibido*/
+        val args by navArgs<ThirdScreenArgs>()
+        arguments?.let { binding.TVSaludo.text = "Invocado desde " + args.origen }
+
+    }
 
     companion object {
         /**

@@ -19,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HostFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HostFragment : Fragment() {
+class HostFragment : Fragment(), View.OnClickListener{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,11 +47,12 @@ class HostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentHostBinding.bind(view)
-        /*var bundle = Bundle().apply {
-            putString("PARAMETER", "la pantalla host")
-        }*/
 
-        binding.BTo1.setOnClickListener {
+        binding.BTo1.setOnClickListener(this)
+        binding.BTo2.setOnClickListener(this)
+        binding.BTo3.setOnClickListener(this)
+
+        /*binding.BTo1.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_fromh_to_1)
         }
         binding.BTo2.setOnClickListener {
@@ -59,22 +60,26 @@ class HostFragment : Fragment() {
         }
         binding.BTo3.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_fromh_to_3)
-        }
+        }*/
     }
 
-    /*fun onClick(v: View?) {
+    override fun onClick(v: View?) {
         when(v?.id) {
-            binding.button.id -> {
-                Navigation.findNavController(v).navigate(R.id.fisrtScreen)
+            binding.BTo1.id -> {
+                Navigation.findNavController(v).navigate(R.id.action_fromh_to_1)
             }
-            binding.button2.id -> {
-                v.findNavController().navigate(R.id.secondScreen)
+            binding.BTo2.id -> {
+                v.findNavController().navigate(R.id.action_fromh_to_2)
             }
-            binding.button3.id -> {
-                v.findNavController().navigate(R.id.placeholder)
+            binding.BTo3.id -> {
+                /*var bundle = Bundle().apply {
+                    putString("PARAMETER", "la pantalla host")
+                }*/
+                val action = HostFragmentDirections.actionFromhTo3("el fragmento host usadndo safeargs")
+                v.findNavController().navigate(action)
             }
         }
-    }*/
+    }
 
     companion object {
         /**
